@@ -12,13 +12,21 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v3
 
-      - name: Gerar cobra de contribuições
+      - name: Gerar cobra clara
         uses: Platane/snk@v3
         with:
           github_user_name: otatanoob
-          outputs: |
-            ./output/github-contribution-grid-snake.svg
-            ./output/github-contribution-grid-snake-dark.svg
+          outputs: ./output/github-contribution-grid-snake.svg
+          config: |
+            theme: light
+
+      - name: Gerar cobra escura
+        uses: Platane/snk@v3
+        with:
+          github_user_name: otatanoob
+          outputs: ./output/github-contribution-grid-snake-dark.svg
+          config: |
+            theme: dark
 
       - name: Commit e push
         uses: EndBug/add-and-commit@v9
